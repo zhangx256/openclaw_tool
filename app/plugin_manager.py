@@ -14,7 +14,7 @@ def ensure_channel_plugin(channel_title: str, log: Callable[[str], None] | None 
         "QQ": ("openclaw-qqbot", ["openclaw", "plugins", "install", "@tencent-connect/openclaw-qqbot@latest"]),
         "钉钉": ("dingtalk-connector", ["openclaw", "plugins", "install", "@dingtalk-real-ai/dingtalk-connector"]),
         "企业微信": ("wecom-openclaw-plugin", ["openclaw", "plugins", "install", "@wecom/wecom-openclaw-plugin"]),
-        "微信": ("openclaw-weixin", ["openclaw", "plugins", "install", "@tencent-weixin/openclaw-weixin"]),
+        "微信": ("openclaw-weixin", ["openclaw", "plugins", "install", "@tencent-weixin/openclaw-weixin@legacy"]),
     }.get(channel_title)
 
     if not required:

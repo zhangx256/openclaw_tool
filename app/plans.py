@@ -143,6 +143,8 @@ def build_custom_model_plan(provider_id: str, model_id: str, base_url: str, api_
         [
             "$modelsModeOut = (openclaw config get models.mode 2>&1 | Out-String)",
             'if ($modelsModeOut -match "Config path not found:\\s*models\\.mode") { openclaw config set models.mode "merge" }',
+            "$providersOut = (openclaw config get models.providers 2>&1 | Out-String)",
+            'if ($providersOut -match "Config path not found:\\s*models\\.providers") { openclaw config set models.providers "{}" }',
             f"openclaw config set models.providers.{provider_key} {ps_dq(provider_obj)}",
             f"openclaw config set {ps_dq(agent_default_key)} {ps_dq('{}')}",
             f"& {ps_dq(gateway_vbs)}",
